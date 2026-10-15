@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RedVibe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div id="loginPage" class="auth-page">
+        <div class="auth-box">
+            <div class="logo">🔴</div>
+            <h1>RedVibe</h1>
+            <p class="tagline">Share. Connect. Vibe.</p>
+
+            <input type="text" id="loginUsername" placeholder="Username">
+            <input type="password" id="loginPassword" placeholder="Password">
+
+            <button onclick="login()">Login</button>
+
+            <p>Don't have an account?
+                <span onclick="showRegister()">Register</span>
+            </p>
+            <p id="loginError" class="error"></p>
+        </div>
+    </div>
+
+    <div id="registerPage" class="auth-page hidden">
+        <div class="auth-box">
+            <div class="logo">🔴</div>
+            <h1>Create Account</h1>
+            <p class="tagline">Join RedVibe today</p>
+
+            <input type="text" id="registerName" placeholder="Full Name">
+            <input type="text" id="registerUsername" placeholder="Username">
+            <input type="password" id="registerPassword" placeholder="Password">
+
+            <button onclick="register()">Register</button>
+
+            <p>Already have an account?
+                <span onclick="showLogin()">Login</span>
+            </p>
+            <p id="registerError" class="error"></p>
+        </div>
+    </div>
+
+    <div id="appPage" class="hidden">
+
+        <nav class="navbar">
+            <div class="brand">
+                <span>🔴</span>
+                <h2>RedVibe</h2>
+            </div>
+
+            <div class="nav-buttons">
+                <button onclick="showHome()">🏠 Home</button>
+                <button onclick="showUsers()">👥 Users</button>
+                <button onclick="showProfile()">👤 Profile</button>
+                <button onclick="logout()" class="logout-btn">Logout</button>
+            </div>
+        </nav>
+
+        <div id="homePage" class="container">
+            <div class="welcome">
+                <h1>Welcome to RedVibe 🔥</h1>
+                <p>What's happening in your world?</p>
+            </div>
+
+            <div class="post-box">
+                <h2>✨ Create Post</h2>
+
+                <textarea id="postText" maxlength="280" placeholder="What's happening?"></textarea>
+
+                <div class="post-bottom">
+                    <span id="charCount">0/280</span>
+                    <button onclick="createPost()">Post 🔥</button>
+                </div>
+            </div>
+
+            <h2 class="section-title">❤️ Home Feed</h2>
+            <div id="feed"></div>
+        </div>
+
+        <div id="usersPage" class="container hidden">
+            <div class="page-title">
+                <h1>👥 Discover People</h1>
+                <p>Follow people and see their posts.</p>
+            </div>
+            <div id="usersList"></div>
+        </div>
+
+        <div id="profilePage" class="container hidden">
+            <div class="profile-box">
+                <div class="profile-avatar" id="profileAvatar">U</div>
+                <h2 id="profileName"></h2>
+                <p id="profileUsername"></p>
+
+                <div class="stats">
+                    <div>
+                        <b id="followersCount">0</b>
+                        <span>Followers</span>
+                    </div>
+                    <div>
+                        <b id="followingCount">0</b>
+                        <span>Following</span>
+                    </div>
+                    <div>
+                        <b id="postsCount">0</b>
+                        <span>Posts</span>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title">📝 My Posts</h2>
+            <div id="myPosts"></div>
+        </div>
+    </div>
+
+    <div id="commentModal" class="modal hidden">
+        <div class="modal-content">
+            <button class="close" onclick="closeComments()">×</button>
+            <h2>💬 Comments</h2>
+
+            <div id="commentsList"></div>
+
+            <div class="comment-input">
+                <input type="text" id="commentText" placeholder="Write a comment..." maxlength="200">
+                <button onclick="addComment()">Comment</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
